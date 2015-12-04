@@ -6,8 +6,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "shell", inline: <<-SHELL
     sudo apt-get update
-    sudo apt-get install python-pip
-    sudo apt-get install git
+    sudo apt-get -y install python-pip git
     sudo bash -c 'echo "export PATH=/home/vagrant/.local/bin:$PATH" >> /etc/profile'
   SHELL
 end
