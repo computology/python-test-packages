@@ -1,5 +1,8 @@
 #!/bin/sh
 
-git clean -f
+set -e
+
+git clean -fXd --exclude .vagrant
 
 python setup.py bdist_wheel --universal
+python setup.py bdist_egg
