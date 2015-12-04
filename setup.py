@@ -1,8 +1,12 @@
+import os
+
+### This is needed to eliminate the use of hardlinks for setup.py sdist
+del os.link
+
 # Always prefer setuptools over distutils
 from setuptools import setup, find_packages
 # To use a consistent encoding
 from codecs import open
-from os import path
 
 setup(
     name='packagecloud_test',
