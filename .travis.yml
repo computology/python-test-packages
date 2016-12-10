@@ -24,7 +24,7 @@ deploy:
   repository: tarantool16
   token: "${PACKAGECLOUD_TOKEN}"
   dist: "${OS}/${DIST}"
-  package_glob: "*.{whl,zip,egg,egg-info,tar,bz2,Z,gz}"
+  package_glob: "dist/*.{whl,zip,egg,egg-info,tar,bz2,Z,gz}"
   skip_cleanup: true
   on:
     all_branches: true
