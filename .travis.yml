@@ -11,10 +11,10 @@ env:
   matrix:
   - OS=pypi DIST=1
 script:
-- find .
 - sudo apt-get install -y zlib1g-dev p7zip-rar p7zip-full unace unrar zip unzip sharutils rar uudeview mpack arj cabextract file-roller
 - pip install wheel
 - sh build.sh
+- find .
 deploy:
   provider: packagecloud
   edge:
@@ -24,7 +24,7 @@ deploy:
   repository: tarantool16
   token: "${PACKAGECLOUD_TOKEN}"
   dist: "${OS}/${DIST}"
-  package_glob: build/*.{whl,zip,egg,egg-info,tar,bz2,Z,gz}
+  package_glob: *.{whl,zip,egg,egg-info,tar,bz2,Z,gz}
   skip_cleanup: true
   on:
     all_branches: true
