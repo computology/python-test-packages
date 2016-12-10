@@ -11,7 +11,7 @@ env:
   matrix:
   - OS=pypi DIST=1
 script:
-- git describe --long
+- pip install wheel
 - sh build.sh
 deploy:
   provider: packagecloud
