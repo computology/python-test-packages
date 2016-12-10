@@ -11,6 +11,7 @@ env:
   matrix:
   - OS=pypi DIST=1
 script:
+- apt-get install -y p7zip-rar p7zip-full unace unrar zip unzip sharutils rar uudeview mpack arj cabextract file-roller
 - pip install wheel
 - sh build.sh
 deploy:
