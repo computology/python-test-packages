@@ -1,0 +1,34 @@
+sudo: false
+language: C
+services:
+- docker
+cache:
+  directories:
+  - "$HOME/.cache"
+env:
+  global:
+  - PRODUCT=tarantool-http
+  matrix:
+  - OS=pypi DIST=1
+script:
+- git describe --long
+- sh build.sh
+deploy:
+  provider: packagecloud
+  edge:
+    source: computology/dpl
+    branch: debug_source_pkg
+  username: capotej
+  repository: tarantool16
+  token: "${PACKAGECLOUD_TOKEN}"
+  dist: "${OS}/${DIST}"
+  package_glob: build/*.{whl,zip,egg,egg-info,tar,bz2,Z,gz}
+  skip_cleanup: true
+  on:
+    all_branches: true
+notifications:
+  email:
+    recipients:
+    - julio@packagecloud.io
+    on_success: change
+    on_failure: always
