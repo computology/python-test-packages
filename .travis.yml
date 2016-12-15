@@ -17,7 +17,7 @@ deploy:
   provider: packagecloud
   edge:
     source: computology/dpl
-    branch: debug_source_pkg
+    branch: pcloud_gems
   username: capotej
   repository: tarantool16
   token: "${PACKAGECLOUD_TOKEN}"
