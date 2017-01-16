@@ -5,27 +5,20 @@ services:
 cache:
   directories:
   - "$HOME/.cache"
-env:
-  global:
-  - PRODUCT=tarantool-http
 script:
 - sudo apt-get install -y zlib1g-dev p7zip-rar p7zip-full unace unrar zip unzip sharutils rar uudeview mpack arj cabextract file-roller
 - pip install wheel
 - sh build.sh
-- find .
 deploy:
   provider: packagecloud
-  edge:
-    source: computology/dpl
-    branch: pcloud_gems
   username: capotej
-  repository: tarantool16
+  repository: python-test-package
   token: "${PACKAGECLOUD_TOKEN}"
   dist: "python"
   package_glob: "dist/*.{whl,zip,egg,egg-info,tar,bz2,Z,gz}"
   skip_cleanup: true
   on:
-    all_branches: true
+    tags: true
 notifications:
   email:
     recipients:
