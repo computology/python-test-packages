@@ -12,7 +12,7 @@ script:
 deploy:
   provider: packagecloud
   username: capotej
-  repository: python-test-package
+  repository: python-test-packages
   token: "${PACKAGECLOUD_TOKEN}"
   dist: "python"
   package_glob: "dist/*.{whl,zip,egg,egg-info,tar,bz2,Z,gz}"
