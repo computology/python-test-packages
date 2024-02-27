@@ -4,17 +4,17 @@ This project aims to generate a whl, egg, and a tar.gz/zip sdist python package 
 
 ## Usage
 
-* Boot up the VM:
+* Start a python Docker container:
 
-`[osx]$ vagrant up`
+```
+docker run --rm -it -v .:/app -w /app python bash
+```
 
-* Log in to VM:
+* Run the build script:
 
-`[osx]$ vagrant ssh`
-
-* Run the build scripta
-
-`[vm]$ cd /vagrant && sh build.sh`
+```
+build.sh
+```
 
 Then the `dist/` directory should contain:
 
