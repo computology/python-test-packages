@@ -13,7 +13,7 @@ docker run --rm -it -v .:/app -w /app python bash
 * Run the build script:
 
 ```
-build.sh
+./build.sh
 ```
 
 Then the `dist/` directory should contain:
